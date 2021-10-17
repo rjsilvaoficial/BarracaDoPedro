@@ -1,5 +1,6 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BarracaDoPedro.Models
 {
@@ -13,6 +14,7 @@ namespace BarracaDoPedro.Models
         [StringLength(200)]
         public string Imagem { get; set; }
         public bool Estoque { get; set; }
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Valor { get; set; }
     }
 }
