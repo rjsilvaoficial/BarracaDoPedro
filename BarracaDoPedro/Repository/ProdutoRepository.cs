@@ -15,7 +15,7 @@ namespace BarracaDoPedro.Repository
         {
             _context = context;
         }
-        public IEnumerable<Produto> Produtos => _context.Produto;
+        public IEnumerable<Produto> Produtos => _context.Produtos;
 
     }
 }
