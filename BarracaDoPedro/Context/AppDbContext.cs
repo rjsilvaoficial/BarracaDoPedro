@@ -13,9 +13,9 @@ namespace BarracaDoPedro.Context
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Produto> Produto { get; set; }
         [StringLength(200)]
-        public DbSet<CarrinhoCompraItem> CarrinhoCompraItens { get; set; }
+        public DbSet<CarrinhoCompraItem> CarrinhoCompraItem { get; set; }
 
     }
 }

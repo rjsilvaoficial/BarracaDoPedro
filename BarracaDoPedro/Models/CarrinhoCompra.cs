@@ -18,7 +18,7 @@ namespace BarracaDoPedro.Models
             _context = context;
         }
         public string CarrinhoCompraId { get; set; }
-        public List<CarrinhoCompraItem> carrinhoCompraItens { get; set; }
+        public List<CarrinhoCompraItem> CarrinhoCompraItens { get; set; }
 
         public static CarrinhoCompra GetCarrinho(IServiceProvider services)
         {
@@ -37,7 +37,7 @@ namespace BarracaDoPedro.Models
         public void AdicionarAoCarrinho(Produto produto)
         {
             var carrinhoCompraItem =
-                _context.CarrinhoCompraItens.SingleOrDefault(s => s.Produto.ProdutoId == produto.ProdutoId && s.CarrinhoCompraId == CarrinhoCompraId);
+                _context.CarrinhoCompraItem.SingleOrDefault(s => s.Produto.ProdutoId == produto.ProdutoId && s.CarrinhoCompraId == CarrinhoCompraId);
 
             if (carrinhoCompraItem == null)
             {
@@ -47,7 +47,7 @@ namespace BarracaDoPedro.Models
                     Produto = produto,
                     Quantidade = 1
                 };
-                _context.CarrinhoCompraItens.Add(carrinhoCompraItem);
+                _context.CarrinhoCompraItem.Add(carrinhoCompraItem);
             }
             else
             {
@@ -59,7 +59,7 @@ namespace BarracaDoPedro.Models
         public int RemoverDoCarrinho(Produto produto, int quantidade)
         {
             var carrinhoCompraItem =
-                _context.CarrinhoCompraItens.SingleOrDefault(s => s.Produto.ProdutoId == produto.ProdutoId && s.CarrinhoCompraId == CarrinhoCompraId);
+                _context.CarrinhoCompraItem.SingleOrDefault(s => s.Produto.ProdutoId == produto.ProdutoId && s.CarrinhoCompraId == CarrinhoCompraId);
 
             var quantidadeLocal = 0;
 
@@ -72,7 +72,7 @@ namespace BarracaDoPedro.Models
                 }
                 else
                 {
-                    _context.CarrinhoCompraItens.Remove(carrinhoCompraItem);
+                    _context.CarrinhoCompraItem.Remove(carrinhoCompraItem);
                 }
             }
             _context.SaveChanges();
@@ -81,13 +81,30 @@ namespace BarracaDoPedro.Models
 
         public List<CarrinhoCompraItem> GetCarrinhoCompraItens()
         {
-            return CarrinhoCompraItem ??
-                   (CarrinhoCompraItem =
-                       _context.CarrinhoCompraItens.Where(c => c.CarrinhoCompraId == CarrinhoCompraId)
+            return CarrinhoCompraItens ??
+                   (CarrinhoCompraItens =
+                       _context.CarrinhoCompraItem.Where(c => c.CarrinhoCompraId == CarrinhoCompraId)
                            .Include(s => s.Produto)
                            .ToList());
         }
 
+        public void LimparCarrinho()
+        {
+            var carrinhoItens = _context.CarrinhoCompraItem
+                                 .Where(carrinho => carrinho.CarrinhoCompraId == CarrinhoCompraId);
+
+            _context.CarrinhoCompraItem.RemoveRange(carrinhoItens);
+
+            _context.SaveChanges();
+        }
+
+        public decimal GetCarrinhoCompraTotal()
+        {
+            var total = _context.CarrinhoCompraItem.Where(c => c.CarrinhoCompraId == CarrinhoCompraId)
+                .Select(c => c.Produto.Valor * c.Quantidade).Sum();
+
+            return total;
+        }
 
     }
 }

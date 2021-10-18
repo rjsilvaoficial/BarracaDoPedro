@@ -61,8 +61,6 @@ C:\Users\robso\Projetos\BarracaDoPedro\BarracaDoPedro\obj\Debug\netcoreapp3.1\sc
 C:\Users\robso\Projetos\BarracaDoPedro\BarracaDoPedro\obj\Debug\netcoreapp3.1\BarracaDoPedro.TagHelpers.input.cache
 C:\Users\robso\Projetos\BarracaDoPedro\BarracaDoPedro\obj\Debug\netcoreapp3.1\BarracaDoPedro.TagHelpers.output.cache
 C:\Users\robso\Projetos\BarracaDoPedro\BarracaDoPedro\obj\Debug\netcoreapp3.1\BarracaDoPedro.RazorCoreGenerate.cache
-C:\Users\robso\Projetos\BarracaDoPedro\BarracaDoPedro\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\robso\Projetos\BarracaDoPedro\BarracaDoPedro\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\robso\Projetos\BarracaDoPedro\BarracaDoPedro\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\robso\Projetos\BarracaDoPedro\BarracaDoPedro\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\robso\Projetos\BarracaDoPedro\BarracaDoPedro\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -148,3 +146,4 @@ C:\Users\robso\Projetos\BarracaDoPedro\BarracaDoPedro\bin\Debug\netcoreapp3.1\tr
 C:\Users\robso\Projetos\BarracaDoPedro\BarracaDoPedro\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\robso\Projetos\BarracaDoPedro\BarracaDoPedro\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\robso\Projetos\BarracaDoPedro\BarracaDoPedro\obj\Debug\netcoreapp3.1\Razor\Views\Produtos\List.cshtml.g.cs
+C:\Users\robso\Projetos\BarracaDoPedro\BarracaDoPedro\obj\Debug\netcoreapp3.1\Razor\Views\CarrinhoCompra\Index.cshtml.g.cs

@@ -33,7 +33,8 @@ namespace BarracaDoPedro
             services.AddTransient<IProdutoRepository, ProdutoRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(cp => CarrinhoCompra.GetCarrinho(cp));
-
+            services.AddMemoryCache();
+            services.AddSession();
             services.AddControllersWithViews();
         }
 
@@ -62,7 +63,7 @@ namespace BarracaDoPedro
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Produtos}/{action=List}/{id?}");
             });
         }
     }
