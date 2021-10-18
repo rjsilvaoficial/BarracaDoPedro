@@ -19,17 +19,19 @@
         <tbody>
             @foreach (var item in Model.CarrinhoCompra.CarrinhoCompraItens)
             {
-                <tr>
-                    <td class="text-center">@item.Quantidade</td>
-                    <td class="text-left">@item.Produto.Nome</td>
-                    <td class="text-right">@item.Produto.Valor.ToString("c")</td>
-                    <td class="text-right">
-                        @((item.Quantidade * item.Produto.Valor).ToString("c"))
-                    </td>
-                    <td class="text-center">
-                        <a asp-controller="CarrinhoCompra" asp-action="RemoverItemDoCarrinhoCompra" asp-route-lancheId="@item.Produto.ProdutoId"><img src="~/images/delete.png" /></a>
-                    </td>
-                </tr>
+            <tr>
+                <td class="text-center">@item.Quantidade</td>
+                <td class="text-left">@item.Produto.Nome</td>
+                <td class="text-right">@item.Produto.Valor.ToString("c")</td>
+                <td class="text-right">
+                    @((item.Quantidade * item.Produto.Valor).ToString("c"))
+                </td>
+                <td class="button ">
+                    <a class="btn btn-primary" id="cartButton" asp-controller="CarrinhoCompra" asp-action="RemoverDoCarrinho" asp-route-produtoId="@item.Produto.ProdutoId">
+                        Excluir do Carrinho
+                    </a>
+                </td>
+            </tr>
             }
         </tbody>
         <tfoot>
